@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+void linearsieve(int N, vector<int> &lp, vector<int> &pr)
+{
+    for (int i=2; i <= N; ++i) {
+        if (lp[i] == 0) {
+            lp[i] = i;
+            pr.push_back(i);
+        }
+        for (int j = 0; i * pr[j] <= N; ++j) {
+            lp[i * pr[j]] = pr[j];
+            if (pr[j] == lp[i]) {
+                break;
+            }
+        }
+    }
+}
+int main()
+{
+    int N;
+    cin>>N;
+	vector<int> lp(N+1,0);
+    vector<int> pr;
+    linearsieve(N, lp, pr);
+    for(auto i: pr)
+        cout<<i<<' ';
+}
