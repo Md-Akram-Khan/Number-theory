@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long L = 1, R = 1000;
+bool isprime[1000]; // size of the isprime is R - L + 1;
+void rangeprime() {
+
+    long long lim = sqrt(R);
+    for (long long i = 2; i <= lim; ++i)
+        for (long long j = max(i * i, (L + i - 1) / i * i); j <= R; j += i)
+            isprime[j - L] = 1;
+    if (L == 1)
+        isprime[0] = 1;
+}
+int main()
+{
+    rangeprime();
+    for(int i = L; i <= R; i++)
+    {
+        if(isprime[i - L] == 0)
+            cout<<i<<' '<<endl;
+    }
+}
