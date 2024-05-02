@@ -3,7 +3,8 @@ using namespace std;
 vector<int>a;
 void primefactorizatiion(int n)
 {
-    for(int i=2; i*i<=n; i++)
+    int limit = sqrt(n + 1);
+    for(int i=2; i<=limit; i++)
     {
         while(n%i==0)
         {
