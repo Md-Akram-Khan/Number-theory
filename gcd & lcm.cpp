@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int gcd1(long long a,long long b)
+long long gcd1(long long a,long long b)
 {
     long long reminder;
     while(b!=0)
@@ -11,12 +11,12 @@ int gcd1(long long a,long long b)
     }
     return a;
 }
-int gcd2(long long a,long long b)
+long long gcd2(long long a,long long b)
 {
     if(b==0) return a;
     return gcd2(b,a%b);
 }
-int lcm(long long a,long long b,long long gcd)
+long long lcm(long long a,long long b,long long gcd)
 {
     return (a*b)/gcd;
 }
