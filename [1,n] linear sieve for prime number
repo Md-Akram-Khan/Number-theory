@@ -1,3 +1,12 @@
+/*
+The weakness of the given algorithm is in using more memory than the classic sieve of Eratosthenes': it requires an array of  
+n  numbers, while for the classic sieve of Eratosthenes it is enough to have n bits of memory (which is 32 times less).
+runtime: O(n)
+memory: O(n)
+*/
+
+Thus, it makes sense to use the described algorithm only until for numbers of order  
+$10^7$  and not greater.
 #include <bits/stdc++.h>
 using namespace std;
 void linearsieve(int N, vector<int> &lp, vector<int> &pr)
