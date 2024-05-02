@@ -1,5 +1,8 @@
-//runtime : O(nloglogn)
-//memory : O(n/64)
+/*
+runtime : O(nloglogn)
+memory : O(n/64)
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 int n = 10000;
