@@ -1,4 +1,4 @@
-//ϕ(n) = number of coprime with upto n
+//ϕ(n) = number of coprime with n upto n
 #include<bits/stdc++.h>
 using namespace std;
 #define max  1000000000000000000
