@@ -2,7 +2,7 @@
 using namespace std;
 int n=100;
 int phi[101],mark[101];
-void totient_function()
+void phisieve()
 {
     phi[1]=phi[2]=1;
     for(int i=3; i<=n; i++)
@@ -27,7 +27,7 @@ void totient_function()
 }
 int main()
 {
-    totient_function();
+    phisieve();
     for(int i=1; i<=n; i++)
         cout<<phi[i]<<" ";
 }
