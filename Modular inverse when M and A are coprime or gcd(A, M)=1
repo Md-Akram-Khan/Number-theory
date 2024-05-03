@@ -2,6 +2,56 @@
  Assumption: a and m are coprimes,
  gcd(A, M) = 1
 */
+/* 1st process:
+#include<bits/stdc++.h>
+using namespace std;
+#define max  1000000000000000000
+long long bigmod(int a,int b,int m)
+{
+    long long result=1;
+    a=a%m;
+    while(b>0)
+    {
+        if(b%2==1) result=(result*a)%m;
+        a=(a*a)%m;
+        b/=2;
+    }
+    return result;
+}
+long long phi(long long n)
+{
+    long long phi=n;
+    for(int i=2; i*i<=n; i++)
+    {
+        if(n%i==0)
+        {
+            phi=(phi/i)*(i-1);
+            while(n%i==0)
+                n/=i;
+        }
+    }
+    if(n>1)
+        phi=(phi/n)*(n-1);
+    return phi;
+}
+long long modinverse(long long A, long long M)
+{
+	return bigmod(A, phi(M) - 1, M);
+}
+int main()
+{
+    long long a, m;
+    cin>>a>>m;
+    cout<<modinverse(a, m)<<endl;
+    //for(int i=0; i<a.size(); i++)
+        //cout<<a[i]<<" ";
+    //cout<<endl;
+    return 0;
+}
+*/
+
+// 2nd process: 
+
 #include <bits/stdc++.h>
 using namespace std;
 int modinverse(int A, int M)
