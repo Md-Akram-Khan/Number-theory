@@ -12,21 +12,6 @@ ll bigmod(int a,int b,int m)//(a^b)%m
     if(b%2==1)p=p*a%m;
     return p;
 }
-ll bigmod1(int a,int b,int m)
-{
-    if(b==0) return 1;
-    else if(b%2==1)
-    {
-        ll p1=a%m;
-        ll p2=bigmod1(a,b-1,m);
-        return (p1*p2)%m;
-    }
-    else
-    {
-        ll p1=bigmod1(a,b/2,m);
-        return (p1*p1)%m;
-    }
-}
 ll bigmod2(int a,int b,int m)
 {
     ll result=1;
