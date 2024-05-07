@@ -1,0 +1,34 @@
+vector<bool>check(10000001, 1);
+vector<int>a;
+void primesieve()
+{
+    check[0] = check[1] = 0;
+    for(int i = 2; i < 10000001; i++)
+    {
+        if(check[i] == 1)
+        {
+            a.pb(i);
+            for(int j = 2 * i; j < 10000001; j+=i)
+            {
+                check[j] = 0;
+            }
+        }
+    }
+}
+///*
+ll test()
+{
+    int aa;
+    cin>>aa;
+    ll cnt = 0;
+    for(int i = 0; i < a.size(); i++)
+    {
+        int smprime = a[i];
+        int lrgeprime = aa - smprime;
+        if(lrgeprime < smprime)
+            break;
+        if(check[lrgeprime] == 1)
+            cnt++;
+    }
+    return cnt;
+}
