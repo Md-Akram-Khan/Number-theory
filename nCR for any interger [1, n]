@@ -1,3 +1,4 @@
+const int mod = 1e9 + 7;
 vector<ll>a(1000001);
 void factorial()
 {
