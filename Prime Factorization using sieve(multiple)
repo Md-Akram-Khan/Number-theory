@@ -1,0 +1,30 @@
+int MAX = 1e4;
+vector<bool>chk(MAX + 1);
+vector<int>prime;
+void sieve()
+{
+  prime.push_back(2);
+  int limit = sqrt(MAX) + 1;
+  for(int i=3;i<=limit;i+=2){
+		if(!chk[i]){
+			prime.push_back(i);
+			for(int j=i*i;j<=limit;j+=i){
+				chk[j]=1;
+			}
+		}
+	}
+}
+void prime_factorize(int x)
+{
+    for(int j=0;j<prime.size();j++){
+        int c=0;
+        while(x%prime[j]==0){
+            c++;
+            x/=prime[j];
+        }
+        if(c != 0)
+            cout<<prime[j]<<' '<<c<<endl;
+    }
+    if(x != 1)
+        cout<<x<<' '<<1<<nl;
+}
