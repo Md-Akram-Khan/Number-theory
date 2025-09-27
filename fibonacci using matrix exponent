@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+// Multiply 2x2 matrices modulo mod
+vector<vector<ll>> multiply(const vector<vector<ll>> &a, const vector<vector<ll>> &b, ll mod) {
+    vector<vector<ll>> res(2, vector<ll>(2, 0));
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            for(int k=0;k<2;k++)
+                res[i][j] = (res[i][j] + a[i][k]*b[k][j]) % mod;
+    return res;
+}
+
+// Fast exponentiation of 2x2 matrix
+vector<vector<ll>> matrix_pow(vector<vector<ll>> mat, ll n, ll mod) {
+    vector<vector<ll>> res = {{1,0},{0,1}}; // Identity matrix
+    while(n>0){
+        if(n&1) res = multiply(res, mat, mod);
+        mat = multiply(mat, mat, mod);
+        n >>= 1;
+    }
+    return res;
+}
+
+// Get nth Fibonacci number modulo mod
+ll fibonacci(ll n, ll mod=1e18){
+    if(n==0) return 0;
+    vector<vector<ll>> F = {{1,1},{1,0}};
+    F = matrix_pow(F, n-1, mod);
+    return F[0][0];
+}
+
+int main(){
+    ll n;
+    cin >> n; // nth Fibonacci number
+    ll mod = 1e9 + 7; // optional modulus
+    cout << fibonacci(n, mod) << endl;
+    return 0;
+}
