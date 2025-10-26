@@ -1,40 +1,25 @@
-//ϕ(n) = number of coprime with n upto n
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define max  1000000000000000000
-//vector<int>a;
-long long phi_single(long long n)
-{
-    long long phi=n;
-    for(int i=2; i*i<=n; i++)
-    {
-        if(n%i==0)
-        {
-            phi=(phi/i)*(i-1);
-            while(n%i==0)
-            {
-                //a.push_back(i);
-                n/=i;
-            }
+
+long long phi(long long n) {
+    long long result = n;
+    for (long long p = 2; p * p <= n; p++) {
+        if (n % p == 0) {
+            // p is a prime factor
+            while (n % p == 0)
+                n /= p;
+            result -= result / p; 
         }
     }
-    if(n>1)
-    {
-        //a.push_back(n);
-        phi=(phi/n)*(n-1);
-    }
-    return phi;
+    if (n > 1)
+        result -= result / n;
+    return result;
 }
-int main()
-{
+
+int main() {
     long long n;
-    cin>>n;
-    cout<<phi_single(n)<<endl;
-    //for(int i=0; i<a.size(); i++)
-        //cout<<a[i]<<" ";
-    //cout<<endl;
+    cout << "Enter n: ";
+    cin >> n;
+    cout << "φ(" << n << ") = " << phi(n) << endl;
     return 0;
 }
-
-
-
